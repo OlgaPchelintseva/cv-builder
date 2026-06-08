@@ -67,3 +67,7 @@ export function CVProvider({children}){
         </CVContext.Provider>
     );
 };
+
+export function useCV(){
+    return useContext(CVContext)
+};
