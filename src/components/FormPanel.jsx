@@ -63,7 +63,6 @@ function FormPanel(){
                 </div>
             </div>
             <div>
-                <h3>Опыт работы</h3>
                 <button onClick={addExperience}>Добавить место работы</button>
                 <div>
                     {state.experience.map((exp) => (

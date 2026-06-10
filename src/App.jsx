@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CVProvider } from './context/CVContext'
 import FormPanel from './components/FormPanel'
+import PreviewPanel from './components/PreviewPanel'
 import './App.css'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <h1>Конструктор резюме</h1>
       <div>
         <FormPanel />
-        {/* <PreviewPanel /> */}
+        <PreviewPanel />
       </div>
     </CVProvider> 
   )
