@@ -24,7 +24,7 @@ function cvReduser(state, action){
                 ...state,
                 personalInfo: {
                     ...state.personalInfo,
-                    ...action.payload
+                    [action.payload.key]: action.payload.value
                 }
             };
         case 'ADD_EXPERIENCE':
@@ -39,13 +39,14 @@ function cvReduser(state, action){
                         role: '',
                         years: ''
                     }
-                ]
+                ] 
             };
         case 'UPDATE_EXPERIENCE':
-            const {id, updatedFields} = action.payload;
+            const {id, key, value} = action.payload;
             return {
                 ...state,
-                experience: state.experience.map(item => item.id === id ? {...item, ...updatedFields} : item)
+                experience: state.experience.map(item => item.id === id ? {...item, [key]: value} : item)
+                // experience: state.experience.map(item => item.id === id ? {...item, ...updatedFields} : item)
             };
         case 'SET_THEME':
             return {
@@ -62,7 +63,7 @@ export function CVProvider({children}){
 
 
     return(
-        <CVContext.Provider value={{state, dispath}}>
+        <CVContext.Provider value={{state, dispatch}}>
             {children}
         </CVContext.Provider>
     );
