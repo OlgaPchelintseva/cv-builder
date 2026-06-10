@@ -1,15 +1,28 @@
 import { useCV } from '../context/CVContext';
+import ExperienceInput from './ExperienceInput';
 
 function FormPanel(){
     const { state, dispatch } = useCV();
 
     const handleChange = (key, value) => {
-        dispatch({type: 'UPDATE_PERSONAL',
-                payload: {
-                    key: key,
-                    value: value
-                }
+        dispatch({
+            type: 'UPDATE_PERSONAL',
+            payload: {
+                key: key,
+                value: value
+            }
         })
+    };
+
+    const handleChangeExperience = (id, key, value) => {
+        dispatch({
+            type: 'UPDATE_EXPERIENCE',
+            payload: {id, key, value}
+        });
+    };
+
+    const addExperience = () => {
+        dispatch({type: 'ADD_EXPERIENCE'})
     };
 
     return(
@@ -22,7 +35,6 @@ function FormPanel(){
                         type="text"
                         value={state.personalInfo.fullName}
                         onChange={(e) => handleChange('fullName', e.target.value)}
-                        placeholder='Введите фамилию, имя и отчество'
                     />
                 </div>
                 <div>
@@ -31,7 +43,6 @@ function FormPanel(){
                         type="email"
                         value={state.personalInfo.email}
                         onChange={(e) => handleChange('email', e.target.value)}
-                        placeholder='Введите ваш Email'
                     />
                 </div>
                 <div>
@@ -40,12 +51,11 @@ function FormPanel(){
                         type="text" 
                         value={state.personalInfo.phone}
                         onChange={(e) => handleChange('phone', e.target.value)}    
-                        placeholder='Введите номер телефона'
                     />
                 </div>
                 <div>
-                    <label>Желаемая должность</label>
-                    <input 
+                    <label>О себе</label>
+                    <textarea 
                         type="text" 
                         value={state.personalInfo.position}
                         onChange={(e) => handleChange('position', e.target.value)}
@@ -54,8 +64,15 @@ function FormPanel(){
             </div>
             <div>
                 <h3>Опыт работы</h3>
+                <button onClick={addExperience}>Добавить место работы</button>
                 <div>
-
+                    {state.experience.map((exp) => (
+                        <ExperienceInput
+                            key={exp.id}
+                            experience={exp}
+                            onChange={handleChangeExperience}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
