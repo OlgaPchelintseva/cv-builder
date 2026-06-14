@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useReducer } from "react";
+import React, { useState, useContext, createContext, useReducer, useEffect } from "react";
 
 const CVContext = createContext();
 
@@ -61,6 +61,9 @@ function cvReduser(state, action){
 export function CVProvider({children}){
     const [state, dispatch] = useReducer(cvReduser, initialState());
 
+    useEffect(() => {
+        localStorage.setItem('cv_data', JSON.stringify(state));
+    }, [state])
 
     return(
         <CVContext.Provider value={{state, dispatch}}>
