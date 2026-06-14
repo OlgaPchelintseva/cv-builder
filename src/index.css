@@ -52,6 +52,8 @@
 
 body {
   margin: 0;
+  background-color: #a3dbe953;
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 #root {
@@ -108,4 +110,9 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+@media print {
+  body * {display: none;}
+  .previewToPrint, .previewToPrint * {display: block;} 
 }

@@ -1,6 +1,7 @@
 import { useCV } from '../context/CVContext';
 import ExperienceInput from './ExperienceInput';
 import { useState } from 'react';
+import styles from './FormPanel.module.css';
 
 function FormPanel(){
     const { state, dispatch } = useCV();
@@ -29,10 +30,10 @@ function FormPanel(){
     };
 
     return(
-        <div>
+        <div className={styles.formPanelContainer}>
             <div>
                 <h3>Личная информация</h3>
-                <div>
+                <div className={styles.info}>
                     <label>ФИО</label>
                     <input 
                         type="text"
@@ -40,7 +41,7 @@ function FormPanel(){
                         onChange={(e) => handleChange('fullName', e.target.value)}
                     />
                 </div>
-                <div>
+                <div className={styles.info}>
                     <label>Email</label>
                     <input 
                         type="email"
@@ -48,7 +49,7 @@ function FormPanel(){
                         onChange={(e) => handleChange('email', e.target.value)}
                     />
                 </div>
-                <div>
+                <div className={styles.info}>
                     <label>Телефон</label>
                     <input 
                         type="text" 
@@ -56,7 +57,7 @@ function FormPanel(){
                         onChange={(e) => handleChange('phone', e.target.value)}    
                     />
                 </div>
-                <div>
+                <div className={styles.info}>
                     <label>О себе</label>
                     <textarea 
                         type="text" 
@@ -66,17 +67,19 @@ function FormPanel(){
                 </div>
             </div>
             <div>
-                <button onClick={addExperience}>Добавить место работы</button>
                 <div>
                     <h3>Опыт работы</h3>
-                    {state.experience.map((exp) => (
-                        <ExperienceInput
-                            key={exp.id}
-                            experience={exp}
-                            onChange={handleChangeExperience}
-                        />
-                    ))}
+                    <div>
+                        {state.experience.map((exp) => (
+                            <ExperienceInput
+                                key={exp.id}
+                                experience={exp}
+                                onChange={handleChangeExperience}
+                            />
+                        ))}
+                    </div>
                 </div>
+                <button onClick={addExperience} className={styles.btnExp}>Добавить место работы</button>
             </div>
         </div>
     )

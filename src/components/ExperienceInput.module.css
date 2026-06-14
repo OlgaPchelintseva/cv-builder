@@ -1,0 +1,18 @@
+.experienceBox{
+    margin-bottom: 20px;
+}
+
+.experience{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+}
+
+.experience input{
+    background-color: #effcffad;
+    border: 1px solid #2f435a;
+    border-radius: 5px;
+    width: 60%;
+    height: 25px;
+    margin-bottom: 10px;
+}

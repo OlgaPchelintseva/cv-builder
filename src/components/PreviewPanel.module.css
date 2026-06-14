@@ -1,11 +1,92 @@
 .classicTheme{
-    background-color: antiquewhite;
+    background-color: #E9B1A3;
+    color: #2F435A;
 }
 
 .modernTheme{
-    background-color: coral;
+    background-color: #2F435A;
+    color: #E9B1A3;
 }
 
 .notFilledName{
-    color: #ccc;
+    color: #ffffff9f;
+}
+
+.previewPanelContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2f435a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    min-height: 80vh;
+    margin: auto;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+}
+
+.btnBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnThemeBox{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.btnTheme{
+    padding: 7px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #2f435a;
+    color: #E9B1A3;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+    cursor: pointer;
+}
+
+.btnClickStyle{
+    background-color: #e0f9ffd1;
+    color: #2F435A;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+    padding: 7px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.btnPrint{
+    padding: 7px 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: #2f435a;
+    color: #E9B1A3;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+    cursor: pointer;
+}
+
+.btnPrint:hover{
+    background-color: #e0f9ffd1;
+    color: #2F435A;
+}
+
+.info{
+    padding: 0 50px 0 50px;
+    text-align: left;
+}
+
+.info h3{
+    text-align: center;
+    margin: 50px 0 30px 0;
+}
+
+.infoPosition {
+    margin: 20px 0 50px 0;
+    text-align: justify;
+}
+
+.experience{
+    text-align: justify;
+    padding: 0 50px 0 50px;
+    margin-bottom: 20px;
 }

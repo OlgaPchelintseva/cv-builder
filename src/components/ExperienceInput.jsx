@@ -1,11 +1,13 @@
+import styles from './ExperienceInput.module.css'
+
 function ExperienceInput({experience, onChange}){
     const handleChange = (key, value) => {
         onChange(experience.id, key, value)
     }
 
     return(
-        <div>
-            <div>
+        <div className={styles.experienceBox}>
+            <div className={styles.experience}>
                 <label>Компания</label>
                 <input 
                     type="text"
@@ -13,7 +15,7 @@ function ExperienceInput({experience, onChange}){
                     onChange={(e) => handleChange('company', e.target.value)}
                 />
             </div>
-            <div>
+            <div className={styles.experience}>
                 <label>Должность</label>
                 <input 
                     type="text" 
@@ -21,7 +23,7 @@ function ExperienceInput({experience, onChange}){
                     onChange={(e) => handleChange('role', e.target.value)}  
                 />
             </div>
-            <div>
+            <div className={styles.experience}>
                 <label>Период работы</label>
                 <input 
                     type="text" 

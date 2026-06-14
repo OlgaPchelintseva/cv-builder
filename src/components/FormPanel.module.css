@@ -1,0 +1,47 @@
+.formPanelContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2f435a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    min-height: 80vh;
+    margin: auto;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+    color: #2f435a;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+}
+
+.info input, textarea{
+    background-color: #effcffad;
+    border: 1px solid #2f435a;
+    border-radius: 5px;
+    width: 70%;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.info textarea{
+    height: 60px;
+}
+
+.btnExp{
+    padding: 7px 30px;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #2f435a;
+    color: #E9B1A3;
+    box-shadow: 0px 5px 8px rgba(47, 67, 90, 0.8);
+    cursor: pointer;
+}
+
+.btnExp:hover{
+    background-color: #effcffad;
+    color: #2f435a;
+}
