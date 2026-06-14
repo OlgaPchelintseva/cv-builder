@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { CVProvider } from './context/CVContext'
 import FormPanel from './components/FormPanel'
 import PreviewPanel from './components/PreviewPanel'
-import './App.css'
+import styles from './App.module.css'
 
 function App() {
   return (
     <CVProvider>
       <h1>Конструктор резюме</h1>
-      <div>
+      <div className={styles.container}>
         <FormPanel />
         <PreviewPanel />
       </div>

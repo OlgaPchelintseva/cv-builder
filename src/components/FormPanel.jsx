@@ -1,5 +1,6 @@
 import { useCV } from '../context/CVContext';
 import ExperienceInput from './ExperienceInput';
+import { useState } from 'react';
 
 function FormPanel(){
     const { state, dispatch } = useCV();
@@ -23,6 +24,8 @@ function FormPanel(){
 
     const addExperience = () => {
         dispatch({type: 'ADD_EXPERIENCE'})
+
+
     };
 
     return(
@@ -65,6 +68,7 @@ function FormPanel(){
             <div>
                 <button onClick={addExperience}>Добавить место работы</button>
                 <div>
+                    <h3>Опыт работы</h3>
                     {state.experience.map((exp) => (
                         <ExperienceInput
                             key={exp.id}

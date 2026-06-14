@@ -5,7 +5,6 @@ function ExperienceInput({experience, onChange}){
 
     return(
         <div>
-            <h3>Опыт работы</h3>
             <div>
                 <label>Компания</label>
                 <input 
