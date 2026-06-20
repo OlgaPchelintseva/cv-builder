@@ -1,6 +1,6 @@
 import { useCV } from '../context/CVContext';
 import ExperienceInput from './ExperienceInput';
-import { useState } from 'react';
+import EducationInput from './EducationInput';
 import styles from './FormPanel.module.css';
 
 function FormPanel(){
@@ -25,9 +25,19 @@ function FormPanel(){
 
     const addExperience = () => {
         dispatch({type: 'ADD_EXPERIENCE'})
-
-
     };
+
+    const handleChangeEducation = (eduId, eduKey, eduValue) => {
+        dispatch({
+            type: 'UPDATE_EDUCATION',
+            payload: {eduId, eduKey, eduValue}
+        });
+    };
+
+    const addEducation = () => {
+        dispatch({type: 'ADD_EDUCATION'})
+    };
+
 
     return(
         <div className={styles.formPanelContainer}>
@@ -80,6 +90,21 @@ function FormPanel(){
                     </div>
                 </div>
                 <button onClick={addExperience} className={styles.btnExp}>Добавить место работы</button>
+            </div>
+            <div>
+                <div>
+                    <h3>Образование</h3>
+                    <div>
+                        {state.education.map((edu) => (
+                            <EducationInput 
+                                key={edu.id}
+                                education={edu}
+                                onChange={handleChangeEducation}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <button onClick={addEducation} className={styles.btnExp}>Добавить учебное заведение</button>
             </div>
         </div>
     )

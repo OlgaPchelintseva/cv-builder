@@ -1,8 +1,18 @@
-import styles from './ExperienceInput.module.css'
+import styles from './ExperienceInput.module.css';
+import { useCV } from '../context/CVContext';
 
 function ExperienceInput({experience, onChange}){
+    const { state, dispatch } = useCV();
+
     const handleChange = (key, value) => {
         onChange(experience.id, key, value)
+    }
+
+    const handleDelete = (deleteId) => {
+        dispatch({
+            type: 'REMOVE_EXPERIENCE',
+            payload: {deleteId: experience.id}
+        });
     }
 
     return(
@@ -31,6 +41,7 @@ function ExperienceInput({experience, onChange}){
                     onChange={(e) => handleChange('years', e.target.value)}   
                 />
             </div>
+            <button onClick={handleDelete} className={styles.btnDelete}>Удалить</button>
         </div>
     );
 };

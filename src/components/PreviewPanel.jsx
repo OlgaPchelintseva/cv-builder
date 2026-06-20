@@ -14,6 +14,12 @@ function PreviewPanel(){
 
     const filledExperience = state.experience.filter(isExperienceFilled);
 
+    const isEducationFilled = (edu) => {
+        return edu.institution.trim() !== '' && edu.degree.trim() !== '' && edu.years.trim() !== '';
+    };
+
+    const filledEducation = state.education.filter(isEducationFilled);
+
     const handleTheme = (theme) => {
         dispatch({
             type: "SET_THEME",
@@ -59,6 +65,19 @@ function PreviewPanel(){
                                 {exp.company && <p>Компания: {exp.company}</p>}
                                 {exp.role && <p>Должность: {exp.role}</p>}
                                 {exp.years && <p>Период работы: {exp.years}</p>}
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {filledEducation.length > 0 && (
+                    <div>
+                        <h4>Образование</h4>
+                        {filledEducation.map((edu) => (
+                            <div key={edu.id} className={styles.experience}>
+                                {edu.institution && <p>Учебное заведение: {edu.institution}</p>}
+                                {edu.degree && <p>Специальность: {edu.degree}</p>}
+                                {edu.years && <p>Годы обучения: {edu.years}</p>}
                             </div>
                         ))}
                     </div>
