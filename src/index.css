@@ -114,5 +114,5 @@ code {
 
 @media print {
   body * {display: none;}
-  .previewToPrint, .previewToPrint * {display: block;} 
+  .previewToPrint, .previewToPrint * {display: block;}
 }

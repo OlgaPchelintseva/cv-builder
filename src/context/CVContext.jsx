@@ -12,7 +12,7 @@ const initialState = () => {
     }
     return {
         personalInfo: {fullName: '', email: '', phone: '', position: ''},
-        experience: [{id: 1, company: '', role: '', years: ''}],
+        experience: [{id: '1', company: '', role: '', years: ''}],
         theme: 'classic'
     };
 };
